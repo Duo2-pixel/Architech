@@ -1,152 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Architect Studio | Design Your Space</title>
-  <style>
-    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
-    body {background:#f7f7f7; color:#333;}
-    header {
-      background:#111; color:#fff; padding:20px 50px;
-      display:flex; justify-content:space-between; align-items:center;
-    }
-    header h1 {font-size:1.8rem; letter-spacing:1px;}
-    nav a {color:#fff; text-decoration:none; margin:0 15px; font-weight:500;}
-    nav a:hover {color:#f9b233;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Architecture Portfolio</title>
+    
+    <style>
+        /* --- Global Styles --- */
+        :root {
+            --primary-color: #1a1a1a;  /* Dark grey */
+            --secondary-color: #ffffff; /* White */
+            --accent-color: #007bff;   /* Blue */
+            --light-gray: #f4f4f4;
+        }
 
-    .hero {
-      background:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      height:90vh; display:flex; justify-content:center; align-items:center; flex-direction:column;
-      color:#fff; text-shadow:0 2px 10px rgba(0,0,0,0.6);
-    }
-    .hero h2 {font-size:3rem; margin-bottom:15px;}
-    .hero p {font-size:1.2rem; max-width:600px; text-align:center;}
-    .hero button {
-      margin-top:25px; padding:12px 30px; border:none; border-radius:25px;
-      background:#f9b233; color:#111; font-size:1rem; font-weight:600; cursor:pointer;
-      transition:0.3s;
-    }
-    .hero button:hover {background:#fff;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    section {padding:60px 50px;}
-    h2.section-title {text-align:center; font-size:2rem; margin-bottom:40px; position:relative;}
-    h2.section-title::after {
-      content:''; width:60px; height:3px; background:#f9b233; display:block; margin:10px auto 0;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+            scroll-behavior: smooth; /* Smooth scroll */
+        }
 
-    .projects {display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:30px;}
-    .project {
-      background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.1);
-      transition:transform 0.3s;
-    }
-    .project:hover {transform:translateY(-5px);}
-    .project img {width:100%; height:220px; object-fit:cover;}
-    .project-content {padding:20px;}
-    .project-content h3 {margin-bottom:10px; color:#111;}
-    .project-content p {color:#666; line-height:1.6;}
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-    .about {
-      display:flex; flex-wrap:wrap; gap:30px; align-items:center; justify-content:center;
-    }
-    .about img {
-      width:400px; max-width:100%; border-radius:15px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.15);
-    }
-    .about-text {flex:1; min-width:300px;}
-    .about-text h3 {margin-bottom:15px; font-size:1.6rem;}
-    .about-text p {color:#555; line-height:1.7;}
+        h1, h2, h3 {
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
 
-    .contact form {
-      max-width:500px; margin:0 auto; display:flex; flex-direction:column; gap:15px;
-    }
-    .contact input, .contact textarea {
-      padding:12px 15px; border-radius:8px; border:1px solid #ccc; font-size:1rem;
-    }
-    .contact button {
-      background:#111; color:#fff; border:none; padding:12px 20px;
-      border-radius:8px; cursor:pointer; font-size:1rem; font-weight:600;
-      transition:0.3s;
-    }
-    .contact button:hover {background:#f9b233; color:#111;}
-    footer {
-      background:#111; color:#fff; text-align:center; padding:20px;
-    }
-  </style>
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: var(--accent-color); }
+
+        /* --- Header & Nav --- */
+        header {
+            background: var(--secondary-color);
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        /* --- Projects Section --- */
+        #projects {
+            padding: 4rem 2rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--secondary-color);
+            border: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .project-card h3, .project-card p {
+            padding: 1rem 1.5rem;
+        }
+        .project-card h3 { padding-bottom: 0.5rem; }
+        .project-card p { padding-top: 0; color: #555; }
+
+        /* --- About Section --- */
+        .about-section {
+            background: var(--light-gray);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 5px solid var(--secondary-color);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .about-section p {
+            max-width: 700px;
+            margin: 0 auto 1rem;
+        }
+
+        /* --- Contact & Footer --- */
+        #contact {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 1rem 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        /* --- Responsive (Mobile) --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: var(--secondary-color);
+                position: absolute;
+                top: 65px; /* Height of header */
+                right: 0;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>ArchDesign Studio</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Your Name</a>
+            <ul class="nav-links">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle">☰</div>
+        </nav>
+    </header>
 
-  <section class="hero" id="home">
-    <h2>Designing Dreams into Reality</h2>
-    <p>We create inspiring architectural designs that blend beauty, function, and sustainability.</p>
-    <button onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-      Get in Touch
-    </button>
-  </section>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Modern Architecture & Design</h1>
+                <p>A collection of my work, from conceptual sketches to built reality.</p>
+            </div>
+        </section>
 
-  <section id="projects">
-    <h2 class="section-title">Our Projects</h2>
-    <div class="projects">
-      <div class="project">
-        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Modern Villa" />
-        <div class="project-content">
-          <h3>Modern Villa</h3>
-          <p>A luxury villa with a minimalist design and open living spaces that bring nature inside.</p>
+        <section id="projects" class="container">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                
+                <div class="project-card">
+                    <img src="images/project1.jpg" alt="Description of Project 1">
+                    <h3>The Vistula House</h3>
+                    <p>A residential project focusing on natural light and sustainable materials.</p>
+                </div>
+
+                <div class="project-card">
+                    <img src="images/project2.jpg" alt="Description of Project 2">
+                    <h3>Urban Canopy Pavilion</h3>
+                    <p>A public space installation designed for community interaction.</p>
+                </div>
+
+                <div class="project-card">
+                    <img src="images/project3.jpg" alt="Description of Project 3">
+                    <h3>Metro Tower Redesign</h3>
+                    <p>Conceptual redesign of a commercial high-rise building facade.</p>
+                </div>
+                
+                </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>About Me</h2>
+                <img src="images/your-photo.jpg" alt="Your Name" class="profile-pic">
+                <p>Hello! I am [Your Name], an architect passionate about creating spaces that are both functional and inspiring. I specialize in [Your Specialty, e.g., sustainable design, residential architecture, urban planning].</p>
+                <p>I hold a [Your Degree, e.g., Master of Architecture] from [Your University]. This portfolio showcases my journey and capabilities. Let's build something amazing together.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+            <h2>Get in Touch</h2>
+            <p>I am currently available for freelance work and collaborations.</p>
+            <a href="mailto:your.email@example.com" class="cta-button">Email Me</a>
+            <p>You can also find me on <a href="httpsli://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 by Your Name. All rights reserved.</p>
         </div>
-      </div>
+    </footer>
 
-      <div class="project">
-        <img src="https://images.unsplash.com/photo-1529429611273-3392f7d2d1d4?auto=format&fit=crop&w=800&q=80" alt="Corporate Tower" />
-        <div class="project-content">
-          <h3>Corporate Tower</h3>
-          <p>High-rise office building with an energy-efficient facade and modern workspaces.</p>
-        </div>
-      </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
 
-      <div class="project">
-        <img src="https://images.unsplash.com/photo-1486308510493-aa64833634ef?auto=format&fit=crop&w=800&q=80" alt="Eco Housing" />
-        <div class="project-content">
-          <h3>Eco Housing</h3>
-          <p>Sustainable housing design integrating solar power, rainwater harvesting, and natural cooling.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <h2 class="section-title">About Us</h2>
-    <div class="about">
-      <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=800&q=80" alt="Architect at work">
-      <div class="about-text">
-        <h3>We Build With Passion</h3>
-        <p>At ArchDesign Studio, we believe every space tells a story. Our team of architects and designers work together to create innovative, timeless designs that reflect your vision and lifestyle.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <h2 class="section-title">Contact Us</h2>
-    <form action="mailto:yourname@email.com" method="POST" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>© 2025 ArchDesign Studio | All Rights Reserved</p>
-  </footer>
-
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
