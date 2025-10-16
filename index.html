@@ -1,203 +1,152 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Architect Portfolio — [Your Name]</title>
-  <meta name="description" content="Portfolio of an architect — projects, services, contact." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Architect Studio | Design Your Space</title>
   <style>
-    :root{--bg:#ffffff;--muted:#6b7280;--accent:#0f766e;--accent-2:#064e3b;--card:#f8fafc}
-    *{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,'Helvetica Neue',Arial;line-height:1.5;color:#0f172a;background:var(--bg)}
-    .container{max-width:1100px;margin:0 auto;padding:28px}
-    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
-    nav a{margin-left:18px;text-decoration:none;color:var(--muted);font-weight:600}
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;padding:36px 0}
-    .hero h1{font-size:40px;margin:0 0 12px;color:#062e2a}
-    .hero p{margin:0 0 18px;color:var(--muted)}
-    .cta{display:inline-block;background:var(--accent);color:white;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:700}
-    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(5,10,15,0.04)}
-    .stats{display:flex;gap:12px;margin-top:18px}
-    .stat{flex:1;text-align:center}/* Projects */
-.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:28px 0}
-.project{border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 6px 20px rgba(2,6,23,0.06)}
-.project img{width:100%;height:200px;object-fit:cover;display:block}
-.project .p-body{padding:12px}
-.project h3{margin:0 0 6px;font-size:18px}
-.project p{margin:0;color:var(--muted);font-size:14px}
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
+    body {background:#f7f7f7; color:#333;}
+    header {
+      background:#111; color:#fff; padding:20px 50px;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    header h1 {font-size:1.8rem; letter-spacing:1px;}
+    nav a {color:#fff; text-decoration:none; margin:0 15px; font-weight:500;}
+    nav a:hover {color:#f9b233;}
 
-/* Services */
-.services{display:flex;gap:12px;margin:28px 0}
-.service{flex:1;padding:18px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdfe);border:1px solid #eef2f6}
-.service h4{margin:0 0 8px}
+    .hero {
+      background:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      height:90vh; display:flex; justify-content:center; align-items:center; flex-direction:column;
+      color:#fff; text-shadow:0 2px 10px rgba(0,0,0,0.6);
+    }
+    .hero h2 {font-size:3rem; margin-bottom:15px;}
+    .hero p {font-size:1.2rem; max-width:600px; text-align:center;}
+    .hero button {
+      margin-top:25px; padding:12px 30px; border:none; border-radius:25px;
+      background:#f9b233; color:#111; font-size:1rem; font-weight:600; cursor:pointer;
+      transition:0.3s;
+    }
+    .hero button:hover {background:#fff;}
 
-footer{border-top:1px solid #eef2f6;padding:28px 0;margin-top:36px;color:var(--muted)}
+    section {padding:60px 50px;}
+    h2.section-title {text-align:center; font-size:2rem; margin-bottom:40px; position:relative;}
+    h2.section-title::after {
+      content:''; width:60px; height:3px; background:#f9b233; display:block; margin:10px auto 0;
+    }
 
-/* Contact */
-.contact-grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
-form{display:flex;flex-direction:column;gap:10px}
-input,textarea{padding:12px;border-radius:8px;border:1px solid #e6eef0;font-size:14px}
-button[type=submit]{background:var(--accent);color:white;padding:12px;border-radius:10px;border:0;font-weight:700}
+    .projects {display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:30px;}
+    .project {
+      background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      transition:transform 0.3s;
+    }
+    .project:hover {transform:translateY(-5px);}
+    .project img {width:100%; height:220px; object-fit:cover;}
+    .project-content {padding:20px;}
+    .project-content h3 {margin-bottom:10px; color:#111;}
+    .project-content p {color:#666; line-height:1.6;}
 
-/* Responsive */
-@media (max-width:920px){.hero{grid-template-columns:1fr}.projects{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr}}
-@media (max-width:600px){.projects{grid-template-columns:1fr}.nav{display:none}.header-right{display:none}.hero h1{font-size:28px}}
+    .about {
+      display:flex; flex-wrap:wrap; gap:30px; align-items:center; justify-content:center;
+    }
+    .about img {
+      width:400px; max-width:100%; border-radius:15px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.15);
+    }
+    .about-text {flex:1; min-width:300px;}
+    .about-text h3 {margin-bottom:15px; font-size:1.6rem;}
+    .about-text p {color:#555; line-height:1.7;}
 
+    .contact form {
+      max-width:500px; margin:0 auto; display:flex; flex-direction:column; gap:15px;
+    }
+    .contact input, .contact textarea {
+      padding:12px 15px; border-radius:8px; border:1px solid #ccc; font-size:1rem;
+    }
+    .contact button {
+      background:#111; color:#fff; border:none; padding:12px 20px;
+      border-radius:8px; cursor:pointer; font-size:1rem; font-weight:600;
+      transition:0.3s;
+    }
+    .contact button:hover {background:#f9b233; color:#111;}
+    footer {
+      background:#111; color:#fff; text-align:center; padding:20px;
+    }
   </style>
 </head>
 <body>
-  <!--
-    Architect Portfolio — Single File Static Site
-    INSTRUCTIONS:
-      1) Replace [Your Name], text and images where needed.
-      2) For images replace the src with your own photos or Unsplash links.
-      3) To deploy: push this file to a GitHub repo and connect to Cloudflare Pages or Render/Netlify.
-      4) Contact form currently uses mailto. For a working form use Formspree, Getform, or Netlify Forms.
-  -->  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo">AK</div>
-        <div>
-          <div style="font-weight:800">Adhyan Kumar</div>
-          <div style="font-size:13px;color:var(--muted)">Architect — Urban & Residential</div>
+
+  <header>
+    <h1>ArchDesign Studio</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h2>Designing Dreams into Reality</h2>
+    <p>We create inspiring architectural designs that blend beauty, function, and sustainability.</p>
+    <button onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
+      Get in Touch
+    </button>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title">Our Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Modern Villa" />
+        <div class="project-content">
+          <h3>Modern Villa</h3>
+          <p>A luxury villa with a minimalist design and open living spaces that bring nature inside.</p>
         </div>
       </div>
-      <nav class="nav">
-        <a href="#projects">Projects</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header><section class="hero">
-  <div>
-    <h1>Designing meaningful spaces that inspire living</h1>
-    <p>Architect with experience in residential, commercial and urban design. I focus on sustainable solutions and thoughtful details that connect people with place.</p>
-    <a class="cta" href="#contact">Get in touch</a>
 
-    <div class="stats">
-      <div class="stat card">
-        <div style="font-weight:800;font-size:20px">8+</div>
-        <div style="font-size:13px;color:var(--muted)">Years Experience</div>
-      </div>
-      <div class="stat card">
-        <div style="font-weight:800;font-size:20px">34</div>
-        <div style="font-size:13px;color:var(--muted)">Completed Projects</div>
-      </div>
-      <div class="stat card">
-        <div style="font-weight:800;font-size:20px">15</div>
-        <div style="font-size:13px;color:var(--muted)">Clients</div>
-      </div>
-    </div>
-  </div>
-
-  <aside class="card">
-    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=1200&q=60" alt="project" style="width:100%;height:260px;object-fit:cover;border-radius:8px;margin-bottom:12px">
-    <h3 style="margin:0 0 8px">Signature Project — Riverside Residence</h3>
-    <p style="margin:0;color:var(--muted)">A sustainable riverside home focusing on cross ventilation, passive cooling and local materials.</p>
-  </aside>
-</section>
-
-<section id="projects">
-  <h2 style="margin:6px 0 12px">Selected Projects</h2>
-  <div class="projects">
-    <article class="project">
-      <img src="https://images.unsplash.com/photo-1505691723518-36a56a1d7b0b?auto=format&fit=crop&w=1400&q=60" alt="Project 1">
-      <div class="p-body">
-        <h3>Riverside Residence</h3>
-        <p>Residential renovation integrating courtyard and daylight strategies.</p>
-      </div>
-    </article>
-
-    <article class="project">
-      <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=1400&q=60" alt="Project 2">
-      <div class="p-body">
-        <h3>Urban Co‑housing</h3>
-        <p>Medium-density co-housing project with shared green spaces.</p>
-      </div>
-    </article>
-
-    <article class="project">
-      <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1400&q=60" alt="Project 3">
-      <div class="p-body">
-        <h3>Studio Office</h3>
-        <p>Adaptive reuse of an old warehouse into a creative studio-office.</p>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section id="services">
-  <h2 style="margin:6px 0 12px">Services</h2>
-  <div class="services">
-    <div class="service">
-      <h4>Architectural Design</h4>
-      <p class="muted">Concept to construction documentation, detailed design for homes and small commercial projects.</p>
-    </div>
-    <div class="service">
-      <h4>Interior Design</h4>
-      <p class="muted">Material selection, joinery design, lighting strategies and furniture layout.</p>
-    </div>
-    <div class="service">
-      <h4>Masterplanning</h4>
-      <p class="muted">Site planning, landscape integration and feasibility studies for larger developments.</p>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <h2 style="margin:6px 0 12px">About</h2>
-  <div class="card" style="display:flex;gap:18px;align-items:center;padding:18px">
-    <img src="https://images.unsplash.com/photo-1541534401786-2b6c7c5f1d4b?auto=format&fit=crop&w=800&q=60" alt="profile" style="width:120px;height:120px;object-fit:cover;border-radius:8px">
-    <div>
-      <p style="margin:0 0 8px;color:var(--muted)">I am an architect passionate about contextual design and sustainable practices. Trained at [Your College], I have worked on residential, community and small commercial buildings with an emphasis on low-energy design and local craftsmanship.</p>
-      <p style="margin:0;color:var(--muted)">Available for freelance projects and collaborations. Based in [City], open to site visits and consultations.</p>
-    </div>
-  </div>
-</section>
-
-<section id="contact" style="margin-top:24px">
-  <h2 style="margin:6px 0 12px">Contact</h2>
-  <div class="contact-grid">
-    <div>
-      <div class="card">
-        <h3 style="margin:0 0 6px">Let's work together</h3>
-        <p style="margin:0 0 12px;color:var(--muted)">For inquiries, brief proposals or to schedule a meeting, drop a message below or reach out directly at <strong>adhyan@example.com</strong>.</p>
-
-        <div style="display:flex;gap:8px;margin-top:12px">
-          <div style="font-size:13px;color:var(--muted)">Phone</div>
-          <div style="font-weight:700">+91 9XXXXXXXXX</div>
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1529429611273-3392f7d2d1d4?auto=format&fit=crop&w=800&q=80" alt="Corporate Tower" />
+        <div class="project-content">
+          <h3>Corporate Tower</h3>
+          <p>High-rise office building with an energy-efficient facade and modern workspaces.</p>
         </div>
-        <div style="display:flex;gap:8px;margin-top:8px">
-          <div style="font-size:13px;color:var(--muted)">Location</div>
-          <div style="font-weight:700">Sonepur, Bihar, India</div>
+      </div>
+
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1486308510493-aa64833634ef?auto=format&fit=crop&w=800&q=80" alt="Eco Housing" />
+        <div class="project-content">
+          <h3>Eco Housing</h3>
+          <p>Sustainable housing design integrating solar power, rainwater harvesting, and natural cooling.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <aside class="card">
-      <!-- Simple mailto form. Replace action with Formspree or other form endpoint for production -->
-      <form action="mailto:adhyan@example.com" method="post" enctype="text/plain">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="text" name="subject" placeholder="Subject" required>
-        <textarea name="message" rows="6" placeholder="Message" required></textarea>
-        <button type="submit">Send message</button>
-      </form>
-    </aside>
-  </div>
-</section>
+  <section id="about">
+    <h2 class="section-title">About Us</h2>
+    <div class="about">
+      <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=800&q=80" alt="Architect at work">
+      <div class="about-text">
+        <h3>We Build With Passion</h3>
+        <p>At ArchDesign Studio, we believe every space tells a story. Our team of architects and designers work together to create innovative, timeless designs that reflect your vision and lifestyle.</p>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-    <div>© <strong>Adhyan Kumar</strong> — Architect</div>
-    <div style="color:var(--muted)">Built with ❤️ • Simple static site</div>
-  </div>
-</footer>
+  <section id="contact" class="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <form action="mailto:yourname@email.com" method="POST" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 
-  </div></body>
+  <footer>
+    <p>© 2025 ArchDesign Studio | All Rights Reserved</p>
+  </footer>
+
+</body>
 </html>
